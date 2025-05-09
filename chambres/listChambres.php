@@ -7,13 +7,27 @@ $chambres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 closeDatabaseConnection($conn);
 
 ?>
+<!-- Partie Messages d'alertes -->
+ <?php
+ // Gestion des messages d'erreurs
+ if (isset($_GET['message'])) {
+    $message = htmlspecialchars(urldecode($_GET['message'])); // limiter les injections XSS
+
+ if (strpos($message, 'ERREUR') !== false) {
+    echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>".$message
+    ."<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>"."</button></div>";
+ } else {
+    echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>".$message
+    ."<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>.</button></div>";
+    }
+ }
+ ?>
 
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <title>List des Chambres</title>
-
     <!-- Partie Font-Aweson-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"rel="stylesheet">
 
@@ -60,24 +74,10 @@ closeDatabaseConnection($conn);
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
 
+
+
+
 </body>
 </html>
 
-<?php
- // Gestion des messages d'erreurs
- if (isset($_GET['message'])) {
- $message = htmlspecialchars(urldecode($_GET['message'])); // limiter les injections XSS
 
- if (strpos($message, 'ERREUR') !== false) {
- echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>"
- .$message
- ."<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>"
- ."</button></div>";
- } else {
- echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>"
- .$message
- ."<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
- .</button></div>";
- }
- }
- ?>

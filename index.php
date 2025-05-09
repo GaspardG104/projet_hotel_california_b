@@ -13,8 +13,8 @@
     crossorigin="anonymous">
 </head>
 <body>
-    <h1>Système de Gestion d'Hôtel</h1>
-    <div class="container mt-3">
+        <h1>Système de Gestion d'Hôtel</h1>
+    <div class="container mt-3 col-2">
         <div class="row mb-3 align-items-center">
             <a href="chambres/listChambres.php" class="btn btn-secondary">Gestion des Chambres</a>
         </div>

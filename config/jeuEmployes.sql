@@ -14,12 +14,3 @@ VALUES ('cnorris', SHA2('Azerty123', 256), 'cnorris@hotelcalifornia.com', 'respo
 INSERT INTO employes (username, password, email, role)
 VALUES ('hdupont', SHA2('Azerty123', 256), 'hdupont@hotelcalifornia.com', 'standard');
 
--- Création de la table des employés
-CREATE TABLE employes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    role VARCHAR(20) NOT NULL DEFAULT 'standard',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) engine="InnoDB";

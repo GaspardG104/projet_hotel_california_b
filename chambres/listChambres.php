@@ -6,6 +6,8 @@ $stmt = $conn->query("SELECT * FROM chambres ORDER BY numero");
 $chambres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 closeDatabaseConnection($conn);
 
+
+
 ?>
 
 <!DOCTYPE html>

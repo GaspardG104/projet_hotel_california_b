@@ -14,29 +14,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: listChambres.php");
     exit;
 }
+
+//PARTIE GESTION ERREUR
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $numero = $_POST['numero'];
+    $capacite = $_POST['capacite'];
+    if (empty($numero) || empty($capacite) || !is_numeric($numero) || !is_numeric($capacite)) {
+    $encodedMessage = urlencode("ERREUR : une ou plusieurs valeurs erronnée(s).");
+    header("Location: listChambres.php?message=$encodedMessage");
+    } else {
+    $conn = openDatabaseConnection();
+    $stmt = $conn->prepare("INSERT INTO chambres (numero, capacite) VALUES (?, ?)");
+    $stmt->execute([$numero, $capacite]);
+    closeDatabaseConnection($conn);
+   
+    $encodedMessage = urlencode("SUCCES : ajout effectuée.");
+    header("Location: listChambres.php?message=$encodedMessage");
+    exit;
+    }
+    }
+
+
+
 ?>
 
-<?php
-//
- require_once '../config/db_connect.php';
- if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
- $numero = $_POST['numero'];
- $capacite = $_POST['capacite'];
- if (empty($numero) || empty($capacite) || !is_numeric($numero) || !is_numeric($capacite)) {
- $encodedMessage = urlencode("ERREUR : une ou plusieurs valeurs erronnée(s).");
- header("Location: listChambres.php?message=$encodedMessage");
- } else {
- $conn = openDatabaseConnection();
- $stmt = $conn->prepare("INSERT INTO chambres (numero, capacite) VALUES (?, ?)");
- $stmt->execute([$numero, $capacite]);
- closeDatabaseConnection($conn);
-
- $encodedMessage = urlencode("SUCCES : ajout effectuée.");
- header("Location: listChambres.php?message=$encodedMessage");
- exit;
- }
- }
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -94,23 +96,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 </html>
 
-<?php
- require_once '../config/db_connect.php';
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- $numero = $_POST['numero'];
- $capacite = $_POST['capacite'];
- if (empty($numero) || empty($capacite) || !is_numeric($numero) || !is_numeric($capacite)) {
- $encodedMessage = urlencode("ERREUR : une ou plusieurs valeurs erronnée(s).");
- header("Location: listChambres.php?message=$encodedMessage");
- } else {
- $conn = openDatabaseConnection();
- $stmt = $conn->prepare("INSERT INTO chambres (numero, capacite) VALUES (?, ?)");
- $stmt->execute([$numero, $capacite]);
- closeDatabaseConnection($conn);
-
- $encodedMessage = urlencode("SUCCES : ajout effectuée.");
- header("Location: listChambres.php?message=$encodedMessage");
- exit;
- }
- }
-?>

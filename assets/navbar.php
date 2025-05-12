@@ -12,7 +12,7 @@
 </html>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/projet_hotel_california/index.php"><i class="fas fa-hotel"></i>
+        <a class="navbar-brand" href="/projet_hotel_california_b/index.php"><i class="fas fa-hotel"></i>
             Réservations Hotel California</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,19 +21,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/projet_hotel_california/index.php">
+                    <a class="nav-link" aria-current="page" href="/projet_hotel_california_b/index.php">
                         <i class="fas fa-home"></i>Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/projet_hotel_california/chambres/listChambres.php">
+                        <a class="nav-link" href="/projet_hotel_california_b/chambres/listChambres.php">
                         <i class="fas fa-bed"></i>Chambres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/projet_hotel_california/clients/listClients.php">
+                    <a class="nav-link" href="/projet_hotel_california_b/clients/listClients.php">
                         <i class="fas fa-user"></i>Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/projet_hotel_california/reservations/listReservations.php">
+                    <a class="nav-link" href="/projet_hotel_california_b/reservations/listReservations.php">
                         <i class="fas fa-table"></i>Réservations</a>
                 </li>
             </ul>
